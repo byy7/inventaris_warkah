@@ -11,22 +11,22 @@
     <title>Inventaris Warkah</title>
     <link rel="icon" href="assets/img/BPN.jpg">
     <style>
-        
+
     </style>
   </head>
-  <body>
+  <body>s
       {{-- Navbar --}}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
         <div class="container">
           <a class="navbar-brand" href="{{ url('/home') }}">Inventaris Warkah</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 @if (Route::has('login'))
-                        <a href="{{ route('login') }}" class="text-sm text-primary-700" style="color:#000000; text-decoration:none;">Login</a>
+                        <a href="{{ route('login') }}" class="text-sm text-primary-700" style="color:white; text-decoration:none;">Login</a>
             @endif
               </li>
             </ul>
@@ -38,18 +38,24 @@
     {{-- Main Content --}}
     <div class="container">
         <div class="row">
+        <div class="jumbotron">
             <div class="col text-center">
-                <br><br><br> <h1>Selamat Datang di Sistem Informasi Inventaris Warkah Badan Pertanahan Kabupaten Banyuasin</h1>
+
+              <div style ="width: 1100px; margin: auto; text-align: justify; font-family: Times New Roman; font-size: 36; color:gray;">
+                <div class ="px-2 bg-light"><marquee class="py-3"><br><br><br> <h1><b>"Selamat Datang di Sistem Informasi Inventaris Warkah Badan Pertanahan Kabupaten Banyuasin"</b></h1></marquee></div>
             </div>
         </div>
+</div>
+</div>
         <div class="row">
+            <div class="jumbotron">
             <div class="col text-center">
-                <br><img src="assets/img/l1.png" alt="logo" width="300">
+                <br><img src="assets/img/pp.jpeg" alt="logo" width="1100" height="200">
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <br><br><h2>Tentang Badan Pertanahan Kota Banyuasin</h2>
+            <br><br><h2>Tentang Badan Pertanahan Kota Banyuasin</h2>
                 <p>Alamat: Komplek, Jl. Perkantoran Pemkab, Pangkalan Balai, Kec. Banyuasin III, Kabupaten Banyu Asin, Sumatera Selatan 30911</p>
             </div>
             <div class="col-md-4">
