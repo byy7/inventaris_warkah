@@ -21,6 +21,7 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -236,8 +237,8 @@ desired effect
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-
-      <!-- Sidebar user panel (optional) -->
+      
+      {{-- <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
           <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
@@ -245,11 +246,11 @@ desired effect
         <div class="pull-left info">
           <p> {{ $user->role }}</p>
           <!-- Status -->
-          {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
-      </div>
+      </div> --}}
 
-      <!-- search form (Optional) -->
+      {{-- <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -259,15 +260,15 @@ desired effect
             </span>
         </div>
       </form>
-      <!-- /.search form -->
+      <!-- /.search form --> --}}
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
+        <li class="header">DATA</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
+        <li class="active"><a href="home"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
+        <li><a href="admin/input"><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
+        {{-- <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -277,7 +278,7 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
             <li><a href="#">Link in level 2</a></li>
           </ul>
-        </li>
+        </li> --}}
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -289,7 +290,7 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="text-center">
-        <strong>Selamat Datang {{ $user->name }}!</strong>
+        <strong>Dashboard Admin</strong><br><br>
       </h1>
       {{-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -299,11 +300,35 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-
+      <table border="1" class="table table-dark table-hover table-responsive bg-info text-center">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Kecamatan</th>
+            <th scope="col">kelurahan/Desa</th>
+            <th scope="col">Nomor Album</th>
+            <th scope="col">Kode Rak</th>
+            <th scope="col">Tanggal Peminjaman</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        @foreach($admin as $a)
+        <tbody>
+          <tr>
+            <th scope="row">{{ $loop->iteration }}</th>
+            <td>{{ $a->kecamatan }}</td>
+            <td>{{ $a->kelurahan }}</td>
+            <td>{{ $a->album }}</td>
+            <td>{{ $a->rak }}</td>
+            <td>{{ $a->tanggal }}</td>
+            <td align="center">
+              <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
+              <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
+              </td>
+          </tr>
+        @endforeach
+        </tbody>
+      </table>
     </section>
     <!-- /.content -->
   </div>
@@ -313,10 +338,11 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+        <img src="assets/img/ig.png" alt="Instagram">
+      <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">kantahkabbanyuasin</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date('Y') }} Kantor Tanah Kabupaten Banyuasin.</strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -406,5 +432,6 @@ desired effect
 <script src="/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminLTE/dist/js/adminlte.min.js"></script>
+
 </body>
 </html>

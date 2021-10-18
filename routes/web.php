@@ -26,8 +26,29 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home',[\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::middleware(['admin'])->group(function(){
-        Route::get('admin', [AdminController::class, 'index']);
+        Route::get('admin', [AdminController::class, 'admin']);
     });
+
+    Route::middleware(['admin'])->group(function(){
+        Route::get('admin/input', [AdminController::class, 'input']);
+    });
+
+    Route::middleware(['admin'])->group(function(){
+        Route::post('admin/simpan', [AdminController::class, 'simpan']);
+    });
+
+    route::middleware(['admin'])->group(function(){
+        Route::get('admin/edit/{id}',[AdminController::class,'edit']);
+    });
+
+    route::middleware(['admin'])->group(function(){
+        Route::post('admin/update',[AdminController::class,'update']);
+    });
+
+    route::middleware(['admin'])->group(function(){
+        Route::get('admin/hapus/{id}',[AdminController::class,'hapus']);
+    });
+
     Route::middleware(['user'])->group(function(){
         Route::get('user', [UserController::class, 'index']);
     });
