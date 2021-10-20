@@ -37,21 +37,26 @@ Route::middleware(['auth'])->group(function(){
         Route::post('admin/simpan', [AdminController::class, 'simpan']);
     });
 
-    route::middleware(['admin'])->group(function(){
+    Route::middleware(['admin'])->group(function(){
         Route::get('admin/edit/{id}',[AdminController::class,'edit']);
     });
 
-    route::middleware(['admin'])->group(function(){
+    Route::middleware(['admin'])->group(function(){
         Route::post('admin/update',[AdminController::class,'update']);
     });
 
-    route::middleware(['admin'])->group(function(){
+    Route::middleware(['admin'])->group(function(){
         Route::get('admin/hapus/{id}',[AdminController::class,'hapus']);
+    });
+
+    Route::middleware(['admin'])->group(function(){
+        Route::get('admin/cari',[AdminController::class,'cari']);
     });
 
     Route::middleware(['user'])->group(function(){
         Route::get('user', [UserController::class, 'index']);
     });
+    
     Route::get('/logout',function(){
         Auth::logout();
         redirect('/');

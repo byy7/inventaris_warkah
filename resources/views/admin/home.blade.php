@@ -266,8 +266,8 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">DATA</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="home"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
-        <li><a href="admin/input"><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
+        <li class="active"><a href="{{ url('home') }}"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
+        <li><a href="{{ url('admin/input') }}"><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
         {{-- <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
@@ -300,6 +300,13 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
+      <p>Cari Data :</p>
+	  <form action="/admin/cari" method="GET">
+		<input type="text" name="cari" placeholder="Cari Data ..." value="{{ old('cari') }}">
+		<input type="submit" value="CARI">
+    	</form>
+		
+	    <br>
       <table border="1" class="table table-dark table-hover table-responsive bg-info text-center">
         <thead>
           <tr>
@@ -329,6 +336,12 @@ desired effect
         @endforeach
         </tbody>
       </table>
+      <br>
+      Halaman : {{ $admin->currentPage() }} <br>
+      Jumlah Data : {{ $admin->total() }} <br>
+      Data Per Halaman : {{ $admin->perPage() }} <br>
+
+      {{ $admin->links() }}
     </section>
     <!-- /.content -->
   </div>

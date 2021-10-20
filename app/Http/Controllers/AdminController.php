@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
 
     public function admin(){
-        $dataadmin = DB::table('data')->get();
+        $dataadmin = DB::table('data')->paginate(5);
         return view('admin.home',['admin'=>$dataadmin]);
     }
 
@@ -54,4 +54,18 @@ class AdminController extends Controller
 
         return redirect('admin')->with('message','Berhasil Mengupdate Data!');
     }
+
+    public function cari(Request $request){
+        $cari = $request->cari;
+
+        $dataadmin = DB::table('data')
+        ->where('kecamatan','like',"%".$cari."%")
+        ->orWhere('kelurahan','like',"%".$cari."%")
+        ->orWhere('album','like',"%".$cari."%")
+        ->orWhere('rak','like',"%".$cari."%")
+        ->orWhere('tanggal','like',"%".$cari."%")
+        ->paginate();
+        return view('admin.home',['admin'=>$dataadmin]);
+    }
+
 }

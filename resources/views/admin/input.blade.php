@@ -134,7 +134,7 @@
               </div>
               <div class="m-3">
                 <label class="form-label">Tanggal Peminjaman</label>
-                <input type="text" name="tanggal" class="form-control">
+                <input type="text" name="tanggal" class="form-control" required="required">
               </div> 
               <br><br>
               <center>
