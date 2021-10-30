@@ -11,7 +11,7 @@
     {{-- Style Css --}}
     <link rel="stylesheet" href="css/style.css">
     <title>Inventaris Warkah</title>
-    <link rel="icon" href="assets/img/BPN.jpg">
+    <link rel="icon" href="{{ URL::asset('assets/img/BPN.jpg') }}">
     <style>
 
     </style>

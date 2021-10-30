@@ -174,5 +174,7 @@
 <script src="/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminLTE/dist/js/adminlte.min.js"></script>
+
+@include('sweetalert::alert')
 </body>
 </html>

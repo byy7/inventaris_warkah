@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin</title>
+  <link rel="icon" href="{{ URL::asset('assets/img/BPN.jpg') }}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -150,7 +151,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <img src="../assets/img/ig.png" alt="Instagram">
+        <img src="{{ URL::asset('assets/img/ig.png')}}" alt="Instagram">
       <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">kantahkabbanyuasin</a>
     </div>
     <!-- Default to the left -->
@@ -173,5 +174,8 @@
 <script src="/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/adminLTE/dist/js/adminlte.min.js"></script>
+
+@include('sweetalert::alert')
+
 </body>
 </html>

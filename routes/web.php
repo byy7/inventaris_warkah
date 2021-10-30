@@ -27,34 +27,18 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['admin'])->group(function(){
         Route::get('admin', [AdminController::class, 'admin']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::get('admin/input', [AdminController::class, 'input']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::post('admin/simpan', [AdminController::class, 'simpan']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::get('admin/edit/{id}',[AdminController::class,'edit']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::post('admin/update',[AdminController::class,'update']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::get('admin/hapus/{id}',[AdminController::class,'hapus']);
-    });
-
-    Route::middleware(['admin'])->group(function(){
         Route::get('admin/cari',[AdminController::class,'cari']);
     });
-
+  
     Route::middleware(['user'])->group(function(){
         Route::get('user', [UserController::class, 'index']);
+        Route::get('user', [UserController::class, 'data']);
+        Route::get('user/cari',[UserController::class,'cari']);
     });
     
     Route::get('/logout',function(){

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use Alert;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,7 @@ class AdminController extends Controller
     }
 
     public function admin(){
+        
         $dataadmin = DB::table('data')->paginate(5);
         return view('admin.home',['admin'=>$dataadmin]);
     }
@@ -30,7 +32,10 @@ class AdminController extends Controller
             'rak'=>$request->rak,
             'tanggal'=>$request->tanggal
         ]);
-        return redirect('admin')->with('message','Berhasil Menambahkan Data!');
+
+        Alert::success('Sukses!','Data berhasil disimpan');
+
+        return redirect('admin');
     }
 
     public function edit($id){
@@ -46,13 +51,18 @@ class AdminController extends Controller
             'rak'=>$request->rak,
             'tanggal'=>$request->tanggal
         ]);
-        return redirect('admin')->with('message','Berhasil Mengupdate Data!');
+
+        Alert::success('Sukses!','Data berhasil diupdate');
+
+        return redirect('admin');
     }
 
     public function hapus($id){
         DB::table('data')->where('id',$id)->delete();
 
-        return redirect('admin')->with('message','Berhasil Mengupdate Data!');
+        Alert::warning('Hapus!','Data berhasil di Hapus');
+
+        return redirect('admin');
     }
 
     public function cari(Request $request){
