@@ -103,35 +103,37 @@
     	</form>
 		
 	    <br>
-      <table border="1" class="table table-dark table-hover table-responsive bg-info text-center">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Kecamatan</th>
-            <th scope="col">kelurahan/Desa</th>
-            <th scope="col">Nomor Album</th>
-            <th scope="col">Kode Rak</th>
-            <th scope="col">Tanggal Peminjaman</th>
-            {{-- <th scope="col">Aksi</th> --}}
-          </tr>
-        </thead>
-        @foreach($datauser as $a)
-        <tbody>
-          <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $a->kecamatan }}</td>
-            <td>{{ $a->kelurahan }}</td>
-            <td>{{ $a->album }}</td>
-            <td>{{ $a->rak }}</td>
-            <td>{{ $a->tanggal }}</td>
-            {{-- <td align="center">
-              <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
-              <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
-              </td> --}}
-          </tr>
-        @endforeach
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table border="1" class="table table-dark table-hover table-responsive bg-info text-center">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Kecamatan</th>
+              <th scope="col">kelurahan/Desa</th>
+              <th scope="col">Nomor Album</th>
+              <th scope="col">Kode Rak</th>
+              <th scope="col">Tanggal Peminjaman</th>
+              {{-- <th scope="col">Aksi</th> --}}
+            </tr>
+          </thead>
+          @foreach($datauser as $a)
+          <tbody>
+            <tr>
+              <th scope="row">{{ $loop->iteration }}</th>
+              <td>{{ $a->kecamatan }}</td>
+              <td>{{ $a->kelurahan }}</td>
+              <td>{{ $a->album }}</td>
+              <td>{{ $a->rak }}</td>
+              <td>{{ $a->tanggal }}</td>
+              {{-- <td align="center">
+                <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
+                <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
+                </td> --}}
+            </tr>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
       <br>
       Halaman : {{ $datauser->currentPage() }} <br>
       Jumlah Data : {{ $datauser->total() }} <br>
@@ -147,7 +149,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <img src="assets/img/ig.png" alt="Instagram">
+        <img src="{{ URL::asset('assets/img/ig.png') }}" alt="Instagram">
       <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">kantahkabbanyuasin</a>
     </div>
     <!-- Default to the left -->

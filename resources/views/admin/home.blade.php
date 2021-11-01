@@ -53,7 +53,6 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <center>
                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -98,7 +97,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content mr-auto">
       <p>Cari Data :</p>
 	  <form action="/admin/cari" method="GET">
 		<input type="text" name="cari" placeholder="Cari Data ..." value="{{ old('cari') }}">
@@ -106,35 +105,37 @@
     	</form>
 		
 	    <br>
-      <table  id="data" border="1" class="table table-dark table-hover table-responsive bg-info text-center">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Kecamatan</th>
-            <th scope="col">kelurahan/Desa</th>
-            <th scope="col">Nomor Album</th>
-            <th scope="col">Kode Rak</th>
-            <th scope="col">Tanggal Peminjaman</th>
-            <th scope="col">Aksi</th>
-          </tr>
-        </thead>
-        @foreach($admin as $a)
-        <tbody>
-          <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $a->kecamatan }}</td>
-            <td>{{ $a->kelurahan }}</td>
-            <td>{{ $a->album }}</td>
-            <td>{{ $a->rak }}</td>
-            <td>{{ $a->tanggal }}</td>
-            <td align="center">
-              <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
-              <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
-              </td>
-          </tr>
-        @endforeach
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table border="1" class="table table-dark table-hover bg-info text-center">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Kecamatan</th>
+              <th scope="col">kelurahan/Desa</th>
+              <th scope="col">Nomor Album</th>
+              <th scope="col">Kode Rak</th>
+              <th scope="col">Tanggal Peminjaman</th>
+              <th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          @foreach($admin as $a)
+          <tbody>
+            <tr>
+              <th scope="row">{{ $loop->iteration }}</th>
+              <td>{{ $a->kecamatan }}</td>
+              <td>{{ $a->kelurahan }}</td>
+              <td>{{ $a->album }}</td>
+              <td>{{ $a->rak }}</td>
+              <td>{{ $a->tanggal }}</td>
+              <td align="center">
+                <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
+                <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
+                </td>
+            </tr>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
       <br>
       Halaman : {{ $admin->currentPage() }} <br>
       Jumlah Data : {{ $admin->total() }} <br>
@@ -150,7 +151,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        <img src="assets/img/ig.png" alt="Instagram">
+        <img src="{{ URL::asset('assets/img/ig.png') }}" alt="Instagram">
       <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">kantahkabbanyuasin</a>
     </div>
     <!-- Default to the left -->
@@ -247,12 +248,12 @@
 
 @include('sweetalert::alert')
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+{{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script> --}}
 
-<script>
+{{-- <script>
   $(document).ready( function () {
     $('#data').DataTable();
 } );
-</script>
+</script> --}}
 </body>
 </html>
