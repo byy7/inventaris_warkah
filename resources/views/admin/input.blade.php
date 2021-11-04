@@ -92,7 +92,30 @@
         <li class="header">DATA</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/home"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
-        <li><a href=""><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
+        <li class="header">INPUT DATA</li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-plus-square-o"></i>
+                <span>Input</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="">
+                    <a href="{{ url('admin/input') }}"
+                        ><i class="fa fa-circle-o"></i>
+                        Data Inventaris</a
+                    >
+                </li>
+                <li>
+                    <a href="index2.html"
+                        ><i class="fa fa-circle-o"></i>
+                        Data Peminjaman Barang</a
+                    >
+                </li>
+            </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

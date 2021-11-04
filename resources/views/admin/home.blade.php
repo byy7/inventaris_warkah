@@ -80,7 +80,31 @@
         <li class="header">DATA</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ url('home') }}"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
-        <li><a href="{{ url('admin/input') }}"><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
+        <li class="header">INPUT DATA</li>
+        <li class="active treeview">
+            <a href="#">
+                <i class="fa fa-plus-square-o"></i>
+                <span>Input</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="">
+                    <a href="{{ url('admin/input') }}"
+                        ><i class="fa fa-circle-o"></i>
+                        Data Inventaris</a
+                    >
+                </li>
+                <li>
+                    <a href="index2.html"
+                        ><i class="fa fa-circle-o"></i>
+                        Data Peminjaman Barang</a
+                    >
+                </li>
+            </ul>
+        </li>
+        {{-- <li><a href="{{ url('admin/input') }}"><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li> --}}
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -92,7 +116,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="text-center">
-        <strong>Dashboard Admin</strong><br><br>
+        <strong>DATA INVENTARIS WARKAH <br> KANTOR TANAH KABUPATEN BANYUASIN</strong><br><br>
       </h1>
     </section>
 
@@ -128,8 +152,9 @@
               <td>{{ $a->rak }}</td>
               <td>{{ $a->tanggal }}</td>
               <td align="center">
-                <a class="btn btn-warning btn-sm" href="/admin/edit/{{ $a->id }}">Edit</a>
-                <a class="btn btn-danger btn-sm" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" >Hapus</a>
+              
+                <a class="glyphicon glyphicon-edit" style="color: #ff8800e3" href="/admin/edit/{{ $a->id }}">&emsp;</a>
+                <a class="glyphicon glyphicon-trash" style="color: #ff0000e1" onclick="return  confirm('Yakin ingin menghapus data?')" href="/admin/hapus/{{ $a->id }}" ></a>
                 </td>
             </tr>
           @endforeach
