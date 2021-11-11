@@ -67,7 +67,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner">
+    <div class="main-banner" id="top">
         <img src="/assets/img/bg-bpn.png" alt="background" width="100%">
 
         <div class="video-overlay header-text">
