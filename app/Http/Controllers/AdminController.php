@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function admin(){
         $dataarsip = DB::table('data')->paginate();
         $datauser  = DB::table('users')->where('role','user')->paginate();
-        $datapinjam  = DB::table('datapeminjaman')->paginate();
+        $datapinjam  = DB::table('tbl_peminjaman')->paginate();
         return view('admin/home',[
             'admin' => $dataarsip,
             'datauser' =>$datauser,
