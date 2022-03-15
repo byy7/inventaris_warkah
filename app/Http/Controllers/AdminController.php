@@ -133,10 +133,13 @@ class AdminController extends Controller
         $datapinjam = DB::table('tbl_peminjaman')
         ->where('nama','like',"%".$cari."%")
         ->orWhere('no_hak','like',"%".$cari."%")
-        ->orWhere('bukutanah','like',"%".$cari."%")
+        ->orWhere('kecamatan','like',"%".$cari."%")
+        ->orWhere('kelurahan','like',"%".$cari."%")
+        ->orWhere('no_bukutanah','like',"%".$cari."%")
         ->orWhere('koderak','like',"%".$cari."%")
-        ->orWhere('tanggalpinjam','like',"%".$cari."%")
-        ->orWhere('tanggalkembali','like',"%".$cari."%")
+        ->orWhere('tglpeminjaman','like',"%".$cari."%")
+        ->orWhere('tglpengembalian','like',"%".$cari."%")
+        ->orWhere('status','like',"%".$cari."%")
         ->paginate(25);
         return view('admin/datapeminjaman',['peminjaman'=>$datapinjam]);
     }
@@ -154,47 +157,6 @@ class AdminController extends Controller
             Alert::warning('Gagal!','Data sudah ada');
             return redirect('admin/datapeminjaman');
         }
-    }
-
-    public function editdata($id){
-        $dt = DB::table('datapeminjaman')->where('id',$id)->get();
-        return view ('admin/editdatapinjam',['edit'=>$dt]);
-    }
-
-    public function updatedata(Request $request){
-        DB::table('datapeminjaman')->where('id',$request->id)->update([
-            'nama'=>$request->nama,
-            'no_hak'=>$request->no_hak,
-            'bukutanah'=>$request->bukutanah,
-            'koderak'=>$request->koderak,
-            'tanggalpinjam'=>$request->tanggalpinjam,
-            'tanggalkembali'=>$request->tanggalkembali
-        ]);
-
-        Alert::success('Sukses!','Data berhasil diupdate');
-
-        return redirect('admin/datapeminjaman');
-    }
-
-    public function hapusdata($id){
-        DB::table('datapeminjaman')->where('id',$id)->delete();
-        // DB::table('datapeminjaman')->where('id',$id)->update([
-        //     'nama'=>"pending"
-        // ]);
-
-        Alert::warning('Hapus!','Data berhasil di Hapus');
-
-        return redirect('admin/datapeminjaman');
-    }
-
-    public function laporandata(){
-        $laporan = DB::table('datapeminjaman')->get();
-        return view('admin/laporanpeminjaman',['laporan'=>$laporan]);
-    }
-
-    public function laporanpinjaman(){
-        $laporan = DB::table('datapeminjaman')->get();
-        return view('admin/laporanpeminjaman',['laporan'=>$laporan]);
     }
 
     public function datauser(){

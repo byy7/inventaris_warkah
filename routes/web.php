@@ -40,10 +40,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('admin/pengembalian/{id}',[AdminController::class,'pengembalian']);
         Route::post('admin/simpanpinjaman',[AdminController::class,'simpanpinjaman']);
         Route::get('admin/caridata',[AdminController::class,'caridata']);
-        Route::get('admin/editdatapinjam/{id}',[AdminController::class,'editdata']);
-        Route::post('admin/updatedata',[AdminController::class,'updatedata']);
-        Route::get('admin/hapusdata/{id}',[AdminController::class,'hapusdata']);
-        Route::get('admin/laporanpeminjaman',[AdminController::class,'laporanpinjaman']);
         Route::get('admin/datauser',[AdminController::class,'datauser']);
         Route::get('admin/caridatauser',[AdminController::class,'caridatauser']);
         Route::get('/getdesa',[AdminController::class,'getDesa']);
