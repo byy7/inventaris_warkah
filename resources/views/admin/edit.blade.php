@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin</title>
-  <link rel="icon" href="{{ URL::asset('assets/img/BPN.jpg') }}">
+  <link rel="icon" type="image/x-icon" href="{{ URL::asset('assets/img/logo-bpn.ico') }}"> 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -36,6 +36,7 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>ADM</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Admin</span>
     </a>
@@ -90,10 +91,9 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">DATA</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="/home"><i class="fa fa-desktop"></i> <span>Data</span></a></li>
-        <li><a href=""><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li>
+        <li class="active"><a href="{{ url('home') }}"><i class="fa fa-home"></i> <span>Beranda</span></a></li>
+        {{-- <li><a href=""><i class="fa fa-plus-square-o"></i> <span>Input Data</span></a></li> --}}
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -105,7 +105,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="text-center">
-        <strong>UPDATE DATA</strong><br><br>
+        <strong>EDIT DATA WARKAH</strong><br><br>
       </h1>
     </section>
 
@@ -117,27 +117,46 @@
             <input type="hidden" name="id" value="{{$e->id}}">
             <div class="form-row">
                 <label class="form-label">Kecamatan</label>
-                <input type="text" name="kecamatan" class="form-control" required="required" value="{{ $e->kecamatan }}" >
+                <select class="form-control" name="kecamatan" required="required">
+                  <option selected >{{ $e->kecamatan }}</option>
+                  <option>Banyuasin I</option>
+                  <option>Banyuasin II</option>
+                  <option>Banyuasin III</option>
+                  <option>Pulau Rimau</option>
+                  <option>Betung</option>
+                  <option>Rambutan</option>
+                  <option>Muara Padang</option>
+                  <option>Muara Telang</option>
+                  <option>Makarti Jaya</option>
+                  <option>Talang Kelapa</option>
+                  <option>Rantau Bayur</option>
+                  <option>Tanjung Lago</option>
+                  <option>Tungkal Ilir</option>
+                  <option>Air Saleh</option>
+                  <option>Muara Sugihan</option>
+                  <option>Sembawa</option>
+                  <option>Suak Tape</option>
+                  <option>Sumber Marga Telang</option>
+                  <option>Air Kumbang</option>
+                  <option>Karang Agung Ilir</option>
+                  <option>Selat Penuguan</option>
+                </select>
               </div>
               <div class="m-5">
                 <label class="form-label">Kelurahan / Desa</label>
                 <input type="text" name="kelurahan" class="form-control" required="required" value="{{ $e->kelurahan }}" >
               </div>
               <div class="m-3">
-              <label class="form-label">Nomor Album</label>
-                <input type="text" name="album" class="form-control" required="required" value="{{ $e->album}}" >
+              <label class="form-label">Nomor Buku Tanah</label>
+                <input type="text" name="bukutanah" class="form-control" required="required" value="{{ $e->bukutanah}}" >
               </div>
               <div class="m-3">
                 <label class="form-label">Kode Rak</label>
                 <input type="text" name="rak" class="form-control" required="required" value="{{ $e->rak }}" >
               </div>
-              <div class="m-3">
-                <label class="form-label">Tanggal Peminjaman</label>
-                <input type="text" name="tanggal" class="form-control" value="{{ $e->tanggal }}" >
-              </div> 
               <br><br>
               <center>
-                <a class="btn btn-warning" href="/home">Batal</a>
+                <a class="btn btn-warning" href="{{ url('home') }}">Batal</a>
                 <input type="submit" class="btn btn-success" value="Update">
               </center>
             </form>
@@ -152,10 +171,10 @@
     <!-- To the right -->
     <div class="pull-right hidden-xs">
         <img src="{{ URL::asset('assets/img/ig.png')}}" alt="Instagram">
-      <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">kantahkabbanyuasin</a>
+      <a href="https://www.instagram.com/kantahkabbanyuasin/" target="_blank">@kantahkabbanyuasin</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021 <a href="#">Kantor Tanah Kabupaten Banyuasin</a>.</strong>
+    <strong>Copyright &copy; {{ date('Y') }} Kantor Tanah Kabupaten Banyuasin.</strong>
   </footer>
     </div>
   </aside>

@@ -27,18 +27,40 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['admin'])->group(function(){
         Route::get('admin', [AdminController::class, 'admin']);
+        Route::get('admin/data', [AdminController::class, 'data']);
         Route::get('admin/input', [AdminController::class, 'input']);
         Route::post('admin/simpan', [AdminController::class, 'simpan']);
         Route::get('admin/edit/{id}',[AdminController::class,'edit']);
         Route::post('admin/update',[AdminController::class,'update']);
         Route::get('admin/hapus/{id}',[AdminController::class,'hapus']);
         Route::get('admin/cari',[AdminController::class,'cari']);
+        Route::get('admin/laporan',[AdminController::class,'laporan']);
+        Route::get('admin/datapeminjaman',[AdminController::class,'datapinjam']);
+        Route::get('admin/inputpinjaman/{id}',[AdminController::class,'inputpinjaman']);
+        Route::get('admin/pengembalian/{id}',[AdminController::class,'pengembalian']);
+        Route::post('admin/simpanpinjaman',[AdminController::class,'simpanpinjaman']);
+        Route::get('admin/caridata',[AdminController::class,'caridata']);
+        Route::get('admin/editdatapinjam/{id}',[AdminController::class,'editdata']);
+        Route::post('admin/updatedata',[AdminController::class,'updatedata']);
+        Route::get('admin/hapusdata/{id}',[AdminController::class,'hapusdata']);
+        Route::get('admin/laporanpeminjaman',[AdminController::class,'laporanpinjaman']);
+        Route::get('admin/datauser',[AdminController::class,'datauser']);
+        Route::get('admin/caridatauser',[AdminController::class,'caridatauser']);
+        Route::get('/getdesa',[AdminController::class,'getDesa']);
+        Route::get('admin/datapengajuan',[AdminController::class,'datapengajuan']);
+        Route::get('admin/caridatapengajuan',[AdminController::class,'caridatapengajuan']);
+        Route::get('admin/datapengajuan/{id}',[AdminController::class,'status']);
+
     });
   
     Route::middleware(['user'])->group(function(){
         Route::get('user', [UserController::class, 'index']);
         Route::get('user', [UserController::class, 'data']);
+        Route::get('user/riwayatpengajuan', [UserController::class, 'riwayatpinjaman']);
         Route::get('user/cari',[UserController::class,'cari']);
+        Route::get('user/peminjamanwarkah/{id}',[UserController::class,'pinjam']);
+        Route::get('user/caririwayat',[UserController::class,'caririwayat']);
+        Route::post('user/simpanpinjaman',[UserController::class,'simpanpinjaman']);
     });
     
     Route::get('/logout',function(){

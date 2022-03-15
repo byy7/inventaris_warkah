@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
     <title>Inventaris Warkah</title>
-    <link rel="icon" href="{{ URL::asset('assets/img/BPN.jpg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ URL::asset('assets/img/logo-bpn.ico') }}">
 
 
     <!-- Additional CSS Files -->
@@ -45,7 +45,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{ url('/') }}" class="logo">Inventaris<em> Warkah</em></a>
+                        <a href="{{ url('/') }}" class="logo"><em> Warkah</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -69,12 +69,11 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <img src="/assets/img/bg-bpn.png" alt="background" width="100%">
-
         <div class="video-overlay header-text">
             <div class="caption">
-                <h4> <marquee behavior="" direction="">SELAMAT DATANG DI SISTEM INFORMASI INVENTARIS WARKAH KANTAH KABUPATEN BANYUASIN</marquee></h4>
+                <h4> <marquee behavior="" direction="">SELAMAT DATANG DI SISTEM INFORMASI INVENTARIS WARKAH KANTOR TANAH KABUPATEN BANYUASIN</marquee></h4>
                 <div class="main-button scroll-to-section">
-                    <a href="#features">Tentang Kami</a>
+                    <a href="#features">Tentang</a>
                 </div>
             </div>
         </div>
@@ -116,7 +115,7 @@
                                 <h5>Manfaat</h5><br>
                                 <p>1. Memudahkan pekerja dan klien saat mencari data Sertifikat Tanah.</p>
                                 <p>2. Mendapatkan Informasi secara Real-Time.</p>
-                                <p>3. Meminimalir Terjadinya Kecurangan.</p>
+                                <p>3. Meminimalisir Terjadinya Kecurangan.</p>
                             </div>
             </div>
         </div>
