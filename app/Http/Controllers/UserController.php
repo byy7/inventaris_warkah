@@ -29,7 +29,7 @@ class UserController extends Controller
         ->orWhere('bukutanah','like',"%".$cari."%")
         ->orWhere('rak','like',"%".$cari."%")
         ->paginate();
-        return view('user.riwayatpengajuan',['datauser'=>$datauser]);
+        return view('user.home',['datauser'=>$datauser]);
     }
 
     public function pinjam($id){
@@ -56,8 +56,8 @@ class UserController extends Controller
     }
 
     public function riwayatpinjaman(){
-        $riwayat= DB::table('tbl_pengajuan')->where('user_id','=',auth()->user()->id)->paginate(25);
-        return view('user/riwayatpengajuan',['riwayat'=>$riwayat]);
+        $riwayat= DB::table('tbl_pengajuan')->where('user_id','=',auth()->user()->id)->orderBy('tglpengajuan','desc')->paginate(25);
+        return view('user.riwayatpengajuan',['riwayat'=>$riwayat]);
     }
 
     public function caririwayat(Request $request){

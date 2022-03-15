@@ -22,10 +22,12 @@ class AdminController extends Controller
         $dataarsip = DB::table('data')->paginate();
         $datauser  = DB::table('users')->where('role','user')->paginate();
         $datapinjam  = DB::table('tbl_peminjaman')->paginate();
+        $datapengajuan = DB::table('tbl_pengajuan')->where('status','Menunggu')->paginate();
         return view('admin/home',[
             'admin' => $dataarsip,
             'datauser' =>$datauser,
-            'datapinjam' =>$datapinjam
+            'datapinjam' =>$datapinjam,
+            'datapengajuan' =>$datapengajuan
         ]);
     }   
 
@@ -105,28 +107,6 @@ class AdminController extends Controller
         return view('admin/datapeminjaman',['peminjaman'=>$datapinjam]);
     }
 
-    public function inputpinjaman($id){
-        $datapinjam = DB::table('tbl_pengajuan')->where('id',$id)->get();
-        return view ('admin/inputpinjaman',['datapinjam'=>$datapinjam]);
-    }
-
-    public function simpanpinjaman(Request $request){
-        DB::table('tbl_peminjaman')->insert([
-            'nama'=>$request->nama,
-            'no_hak'=>$request->no_hak,
-            'kecamatan'=>$request->kecamatan,
-            'kelurahan'=>$request->kelurahan,
-            'no_bukutanah'=>$request->nobukutanah,
-            'koderak'=>$request->koderak,
-            'tglpeminjaman'=>Carbon::now()->toDateTimeString(),
-            'status'=> "Dipinjam"
-        ]);
-
-        Alert::success('Sukses!','Data berhasil disimpan');
-
-        return redirect('admin');
-    }
-
     public function caridata(Request $request){
         $cari = $request->cari;
 
@@ -178,12 +158,35 @@ class AdminController extends Controller
         DB::table('tbl_pengajuan')->where('id',$id)->update([
                 'status'=>"Dipinjam"
             ]);
-        // Alert::success('Sukses!','Data berhasil di Hapus');
-        return redirect('admin/datapengajuan');
+        
+        $nama = DB::table('tbl_pengajuan')->where('id',$id)->get('nama')->implode('nama');
+
+        $nohak = DB::table('tbl_pengajuan')->where('id',$id)->get('no_hak')->implode('no_hak');
+
+        $kecamatan = DB::table('tbl_pengajuan')->where('id',$id)->get('kecamatan')->implode('kecamatan');
+        
+        $kelurahan = DB::table('tbl_pengajuan')->where('id',$id)->get('kelurahan')->implode('kelurahan');
+
+        $nobukutanah = DB::table('tbl_pengajuan')->where('id',$id)->get('no_bukutanah')->implode('no_bukutanah');
+
+        $koderak = DB::table('tbl_pengajuan')->where('id',$id)->get('koderak')->implode('koderak');
+
+        DB::table('tbl_peminjaman')->insert([
+                'nama'=>$nama,
+                'no_hak'=>$nohak,
+                'kecamatan'=>$kecamatan,
+                'kelurahan'=>$kelurahan,
+                'no_bukutanah'=>$nobukutanah,
+                'koderak'=>$koderak,
+                'tglpeminjaman'=>Carbon::now()->toDateTimeString(),
+                'status'=> "Dipinjam"
+            ]);
+        Alert::success('Sukses!','Warkah Telah Dipinjam');
+        return redirect('admin/datapeminjaman');
     }
 
     public function datapengajuan(){
-        $pengajuan=DB::table('tbl_pengajuan')->paginate(20);
+        $pengajuan=DB::table('tbl_pengajuan')->join('users','users.id','=','tbl_pengajuan.user_id')->where('status','Menunggu')->orderBy('tglpengajuan','desc')->paginate(25);
         return view('admin/datapengajuan',['pengajuan'=>$pengajuan]);
     }
 
@@ -201,7 +204,7 @@ class AdminController extends Controller
         ->orWhere('tglpengajuan','like',"%".$cari."%")
         ->orWhere('status','like',"%".$cari."%")
         ->orWhere('tujuanpeminjaman','like',"%".$cari."%")
-        ->paginate(20);
+        ->paginate(25);
         return view('admin/datapengajuan',['pengajuan'=>$datauser]);
     }
 }

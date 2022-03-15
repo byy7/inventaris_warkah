@@ -202,7 +202,7 @@
                     @foreach($pengajuan as $p)
                     <tr>
                       <td> {{ $loop->iteration }} </td>
-                      <td> {{ $p->user_id }} </td>
+                      <td> {{ $p->user_id }} ({{ $p->name }}) </td>
                       <td> {{ $p->nama }} </td>
                       <td> {{ $p->no_hak }} </td>
                       <td> {{ $p->kecamatan }} </td>
@@ -213,8 +213,7 @@
                       <td> {{ $p->tujuanpeminjaman }} </td>
                       <td> {{ $p->status }} </td>
                       <td>
-                          <a class="glyphicon glyphicon-check" <abbr title="Klik untuk mengubah status" style="color: #00ff22e1" onclick="return  confirm('Apakah warkah sudah dipinjam?')" href="/admin/datapengajuan/{{ $p->id }}" ></a>&emsp;
-                          <a class="glyphicon glyphicon-open-file" <abbr title="Klik untuk memasukkan ke database" style="color:#ff5e00" href="/admin/inputpinjaman/{{ $p->id }}"></a>
+                          <a class="glyphicon glyphicon-check" <abbr title="Peminjaman Warkah" style="color: #00ff22e1" onclick="return  confirm('Apakah warkah sudah dipinjam?')" href="/admin/datapengajuan/{{ $p->id }}" ></a>&emsp;
                       </td>
                     </tr>
                     @endforeach

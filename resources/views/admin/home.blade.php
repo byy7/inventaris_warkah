@@ -171,7 +171,7 @@
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3>{{ $admin->total() }}</h3>
-                        <p>Jumlah Data Warkah <br><br></p>
+                        <p>Jumlah Data Warkah <br></p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-files-o"></i>
@@ -190,7 +190,7 @@
                     <div class="inner">
                         <h3><h3>{{ $datauser->total() }}</h3></h3>
 
-                        <p>Jumlah Data User<br><br></p>
+                        <p>Jumlah Data User<br></p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -221,7 +221,24 @@
                   ></a>
               </div>
           </div>
+          <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3>{{ $datapengajuan->total() }}</h3>
+                    <p> Jumlah Pengajuan Peminjaman Warkah </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-ios-book"></i>
+                </div>
+                <a href="{{ url('admin/datapengajuan') }}" class="small-box-footer"
+                    >Selengkapnya
+                    <i class="fa fa-arrow-circle-right"></i
+                ></a>
+            </div>
+        </div>
           </div>
+        </div>
             <!-- ./col -->
   </aside>
   <!-- /.control-sidebar -->

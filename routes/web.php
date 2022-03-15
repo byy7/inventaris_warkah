@@ -36,9 +36,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('admin/cari',[AdminController::class,'cari']);
         Route::get('admin/laporan',[AdminController::class,'laporan']);
         Route::get('admin/datapeminjaman',[AdminController::class,'datapinjam']);
-        Route::get('admin/inputpinjaman/{id}',[AdminController::class,'inputpinjaman']);
         Route::get('admin/pengembalian/{id}',[AdminController::class,'pengembalian']);
-        Route::post('admin/simpanpinjaman',[AdminController::class,'simpanpinjaman']);
         Route::get('admin/caridata',[AdminController::class,'caridata']);
         Route::get('admin/datauser',[AdminController::class,'datauser']);
         Route::get('admin/caridatauser',[AdminController::class,'caridatauser']);
