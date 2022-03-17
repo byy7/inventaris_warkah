@@ -103,7 +103,7 @@ class AdminController extends Controller
     }
 
     public function datapinjam(){
-        $datapinjam = DB::table('tbl_peminjaman')->paginate(20);
+        $datapinjam = DB::table('tbl_peminjaman')->orderBy('tglpeminjaman','desc')->paginate(25);
         return view('admin/datapeminjaman',['peminjaman'=>$datapinjam]);
     }
 
@@ -158,7 +158,7 @@ class AdminController extends Controller
         DB::table('tbl_pengajuan')->where('id',$id)->update([
                 'status'=>"Dipinjam"
             ]);
-        
+            
         $nama = DB::table('tbl_pengajuan')->where('id',$id)->get('nama')->implode('nama');
 
         $nohak = DB::table('tbl_pengajuan')->where('id',$id)->get('no_hak')->implode('no_hak');
@@ -186,7 +186,7 @@ class AdminController extends Controller
     }
 
     public function datapengajuan(){
-        $pengajuan=DB::table('tbl_pengajuan')->join('users','users.id','=','tbl_pengajuan.user_id')->where('status','Menunggu')->orderBy('tglpengajuan','desc')->paginate(25);
+        $pengajuan=DB::table('tbl_pengajuan')->where('status','Menunggu')->orderBy('tglpengajuan','desc')->paginate(25);
         return view('admin/datapengajuan',['pengajuan'=>$pengajuan]);
     }
 

@@ -202,7 +202,7 @@
                     @foreach($pengajuan as $p)
                     <tr>
                       <td> {{ $loop->iteration }} </td>
-                      <td> {{ $p->user_id }} ({{ $p->name }}) </td>
+                      <td> {{ $p->user_id }} </td>
                       <td> {{ $p->nama }} </td>
                       <td> {{ $p->no_hak }} </td>
                       <td> {{ $p->kecamatan }} </td>
