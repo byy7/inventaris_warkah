@@ -11,7 +11,7 @@ $("#kecamatan").change(function () {
                     $("#desa").append("<option>Kelurahan / Desa </option>");
                     $.each(res, function (nama, kode) {
                         $("#desa").append(
-                            '<option value="' + nama + '">' + nama + "</option"
+                            '<option value="' + kode + '">' + nama + "</option"
                         );
                     });
                 } else {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 05:20 AM
+-- Generation Time: Mar 17, 2022 at 08:21 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -37,35 +37,6 @@ CREATE TABLE `data` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `data`
---
-
-INSERT INTO `data` (`id`, `kecamatan`, `kelurahan`, `bukutanah`, `rak`, `created_at`, `updated_at`) VALUES
-(6, 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', NULL, NULL),
-(7, 'Selat Penuguan', 'Penuguan', 'M.4770-4800', 'B5', NULL, NULL),
-(8, 'Muara Sugihan', 'Cendana', 'M.5001-5050', 'B5', NULL, NULL),
-(11, 'Banyuasin III', 'C16', 'ASA', 'A9', NULL, NULL),
-(12, '003', 'Kelurahan / Desa', 'sdsds', 'sdsds', NULL, NULL),
-(13, '001', 'A11', 'asa', 'asa', NULL, NULL),
-(14, 'Banyuasin II', 'Kelurahan / Desa', 'asa', 'asa', NULL, NULL),
-(15, '004', 'Majatera', 'asaas', 'asasa', NULL, NULL),
-(16, '004', 'Banjar Sari', 'asasa', 'asjak', NULL, NULL),
-(17, '003', 'Tanjung Menang', 'AKJ', 'AKSJA', NULL, NULL),
-(18, '002', 'Sungsang II', 'AKS', 'AKSLa', NULL, NULL),
-(19, 'Rambutan', 'Sungai Dua', 'M.01821', 'M.10921', NULL, NULL),
-(20, 'Banyuasin III', 'Setrio', 'ASA', 'ASA', NULL, NULL),
-(21, 'Banyuasin I', 'Sungai Gerong', 'M.0912', '1821', NULL, NULL),
-(22, '003', 'Sri Bandung', 'kssa', 'ajsa', NULL, NULL),
-(23, '001', 'Sungai Rebo', '1010', '1o1', NULL, NULL),
-(24, '004', 'Banjar Sari', 'asa', 'asa', NULL, NULL),
-(25, '001', 'Sungai Gerong', 'asa', 'asa', NULL, NULL),
-(26, '001', 'Sungai Gerong', 'Asasa', 'asa', NULL, NULL),
-(27, '001', 'Sungai Gerong', 'KAJS', 'LASA', NULL, NULL),
-(28, '001', 'Merah Mata', '0101', '0202', NULL, NULL),
-(29, 'Banyuasin I', 'Perajen', 'sdss', 'alsja', NULL, NULL),
-(30, 'Banyuasin I', 'Sungai Gerong', 'ALJSA', 'AMSN', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -81,21 +52,6 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `keterangan`
---
-
-CREATE TABLE `keterangan` (
-  `id` int(255) NOT NULL,
-  `nomor_album` varchar(255) NOT NULL,
-  `kode_rak` varchar(255) NOT NULL,
-  `keterangan_barang` varchar(255) NOT NULL,
-  `tanggal_peminjaman` date NOT NULL,
-  `tanggal_pengembalian` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -534,14 +490,6 @@ CREATE TABLE `tbl_peminjaman` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tbl_peminjaman`
---
-
-INSERT INTO `tbl_peminjaman` (`id`, `nama`, `no_hak`, `kecamatan`, `kelurahan`, `no_bukutanah`, `koderak`, `tglpeminjaman`, `tglpengembalian`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bby', '4802', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-15 10:39:49', '2022-03-15 11:07:41', 'Dikembalikan', NULL, NULL),
-(2, 'Bby', '4802', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-15 10:41:34', '2022-03-15 11:08:29', 'Dikembalikan', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -563,36 +511,6 @@ CREATE TABLE `tbl_pengajuan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `tbl_pengajuan`
---
-
-INSERT INTO `tbl_pengajuan` (`id`, `user_id`, `nama`, `no_hak`, `kecamatan`, `kelurahan`, `no_bukutanah`, `koderak`, `tglpengajuan`, `status`, `tujuanpeminjaman`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Bby', '4802', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-13 01:26:59', 'Dipinjam', 'Untuk Persidangan', NULL, NULL),
-(2, 2, 'Abby', '4802', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-13 01:31:53', 'Dipinjam', 'Peminjaman Berkas', NULL, NULL),
-(3, 2, 'ASas', 'asaaa', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-13 01:45:54', 'Dipinjam', 'dada', NULL, NULL),
-(4, 2, 'asas', 'ASA', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-13 01:46:23', 'Dipinjam', 'ASAs', NULL, NULL),
-(5, 2, 'ASAS', 'akshak', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-13 01:52:10', 'Menunggu', 'ajshajs', NULL, NULL),
-(6, 2, 'kjklj', 'sadad', '003', 'C19', 'owieww', 'wew', '2022-03-13 01:52:50', 'Menunggu', 'asdasd', NULL, NULL),
-(7, 3, 'Byy', '01291', 'Selat Penuguan', 'Penuguan', 'M.4770-4800', 'B5', '2022-03-14 22:02:27', 'Menunggu', 'kajskas', NULL, NULL),
-(8, 2, 'ghg', 'hjh', '003', 'Tanjung Menang', 'AKJ', 'AKSJA', '2022-03-14 23:27:38', 'Menunggu', 'kjkjkj', NULL, NULL),
-(9, 2, 'AJHS', 'ALKS', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:30:25', 'Menunggu', 'AKSJA', NULL, NULL),
-(10, 2, 'AJHS', 'ALKS', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:30:41', 'Menunggu', 'AKSJA', NULL, NULL),
-(11, 2, 'AJHS', 'ALKS', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:32:17', 'Menunggu', 'AKSJA', NULL, NULL),
-(12, 2, 'AS', 'asaA', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:33:48', 'Menunggu', 'SAAS', NULL, NULL),
-(13, 2, 'AS', 'ASA', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:41:08', 'Menunggu', 'ASASD', NULL, NULL),
-(14, 2, 'ASA', 'ASA', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:43:10', 'Menunggu', 'ASA', NULL, NULL),
-(15, 2, 'aksjs', 'kashka', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:44:37', 'Menunggu', 'akdka', NULL, NULL),
-(16, 2, 'ASAD', 'AJHD', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:45:48', 'Menunggu', 'KHDA', NULL, NULL),
-(17, 2, 'ASAD', 'AJHD', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:46:08', 'Menunggu', 'KHDA', NULL, NULL),
-(18, 2, 'JHSAJD', 'AHDA', 'Selat Penuguan', 'Penuguan', 'M.4801-4850', 'B6', '2022-03-14 23:47:49', 'Menunggu', 'LJHAD', NULL, NULL),
-(19, 2, 'AKHDA', 'JADH', 'Selat Penuguan', 'Penuguan', 'M.4770-4800', 'B5', '2022-03-14 23:48:29', 'Menunggu', 'KLAD', NULL, NULL),
-(20, 2, 'AJHSA', 'KAHS', 'Banyuasin III', 'C16', 'ASA', 'A9', '2022-03-15 00:01:54', 'Menunggu', 'AKHSA', NULL, NULL),
-(21, 2, 'zmxnz', 'ajsa', 'Selat Penuguan', 'Penuguan', 'M.4770-4800', 'B5', '2022-03-15 00:10:35', 'Menunggu', 'aksha', NULL, NULL),
-(22, 2, 'KLJS', 'klJALSD', 'Selat Penuguan', 'Penuguan', 'M.4770-4800', 'B5', '2022-03-15 00:11:25', 'Menunggu', 'KLAD', NULL, NULL),
-(23, 2, 'ADMiN', 'k', 'Muara Sugihan', 'Cendana', 'M.5001-5050', 'B5', '2022-03-15 00:12:07', 'Menunggu', 'h', NULL, NULL),
-(24, 2, 'AKJSDa', 'AKHD', 'Banyuasin III', 'C16', 'ASA', 'A9', '2022-03-15 00:13:58', 'Menunggu', 'KAJD', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -618,9 +536,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `created_at`, `updated_at`, `last_login_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2021-11-17 21:41:48', '$2y$10$a1JrM9lF1zMM.Gs5.BD2MutqfuuArfIQ2joOi382Dg75EWlo9.aH.', 'ffnmcHpFJRRWosG75Dp3k98YH3F3wUW6ktXQwJ0zQEmDiuXVbgTVTnTdcGwd', 'admin', '2021-11-17 21:41:48', '2022-03-15 02:33:15', '2022-03-15 09:33:15'),
-(2, 'User', 'user@gmail.com', '2021-11-17 21:41:48', '$2y$10$19Oa1J2SujuXjpDKlbgOM.55/Nux9MsMJZj8w5JUPzU9m5gpBPCim', NULL, 'user', '2021-11-17 21:41:48', '2022-03-15 02:29:52', '2022-03-15 09:29:52'),
-(3, 'byy', 'byy@gmail.com', NULL, '$2y$10$C/wMPPrYmCPigUQ.XVcfyua8tjjr3HMKhHVMZbaug3M28/qvcp9oi', NULL, 'user', '2021-11-17 21:43:57', '2022-03-14 15:04:08', '2022-03-14 22:04:08');
+(1, 'Admin', 'admin@gmail.com', '2021-11-17 21:41:48', '$2y$10$a1JrM9lF1zMM.Gs5.BD2MutqfuuArfIQ2joOi382Dg75EWlo9.aH.', '56mS9Y1Oxy3ncSOfwx7gWrvGKwWlwUGMAXWM1s3Dxc5P9tRcsUDFZp9JSoLo', 'admin', '2021-11-17 21:41:48', '2022-03-17 06:30:32', '2022-03-17 13:30:32'),
+(2, 'User', 'user@gmail.com', '2021-11-17 21:41:48', '$2y$10$19Oa1J2SujuXjpDKlbgOM.55/Nux9MsMJZj8w5JUPzU9m5gpBPCim', NULL, 'user', '2021-11-17 21:41:48', '2022-03-17 04:59:54', '2022-03-17 11:59:54'),
+(6, 'Admin', 'adminwarkah@gmail.com', '2022-03-17 07:18:03', '$2y$10$9Zza3UIbDe8d2uHkiVzI7.gdpPFNYGZuZ65/uaCnGLpgJapuhkiCm', NULL, 'admin', '2022-03-17 07:18:03', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -638,12 +556,6 @@ ALTER TABLE `data`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `keterangan`
---
-ALTER TABLE `keterangan`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -705,19 +617,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `keterangan`
---
-ALTER TABLE `keterangan`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -735,19 +641,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_peminjaman`
 --
 ALTER TABLE `tbl_peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_pengajuan`
 --
 ALTER TABLE `tbl_pengajuan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

@@ -128,7 +128,6 @@
                 <tr>
                   <th>#</th>
                   <th>Nama</th>
-                  <th>No. Hak</th>
                   <th>Kecamatan</th>
                   <th>Kelurahan</th>
                   <th>No. Buku Tanah</th>
@@ -141,7 +140,6 @@
                 <tr>
                   <td> {{ $loop->iteration }} </td>
                   <td> {{ $r->nama }} </td>
-                  <td> {{ $r->no_hak }} </td>
                   <td> {{ $r->kecamatan }} </td>
                   <td> {{ $r->kelurahan }} </td>
                   <td> {{ $r->no_bukutanah }} </td>

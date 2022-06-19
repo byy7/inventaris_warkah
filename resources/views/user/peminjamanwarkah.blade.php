@@ -128,10 +128,10 @@
                 <input type="text" name="nama" class="form-control" required="required" >
               </div>
               <!-- /.form-group -->
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label>No. Hak</label>
                 <input type="text" name="no_hak" class="form-control" required="required" >
-              </div>
+              </div> --}}
               <div class="form-group">
                 <label>Tujuan Peminjaman</label>
                 <textarea name="tujuanpeminjaman" cols="15" rows="5" class="form-control" required="required"></textarea>

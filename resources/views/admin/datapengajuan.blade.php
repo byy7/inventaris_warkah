@@ -189,7 +189,6 @@
                       <th>#</th>
                       <th>Id User</th>
                       <th>Nama</th>
-                      <th>No. Hak</th>
                       <th>Kecamatan</th>
                       <th>Kelurahan</th>
                       <th>No. Buku Tanah</th>
@@ -204,7 +203,6 @@
                       <td> {{ $loop->iteration }} </td>
                       <td> {{ $p->user_id }} </td>
                       <td> {{ $p->nama }} </td>
-                      <td> {{ $p->no_hak }} </td>
                       <td> {{ $p->kecamatan }} </td>
                       <td> {{ $p->kelurahan }} </td>
                       <td> {{ $p->no_bukutanah }} </td>

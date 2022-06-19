@@ -41,7 +41,6 @@ class UserController extends Controller
         DB::table('tbl_pengajuan')->insert([
             'user_id'=>auth()->user()->id,
             'nama'=>$request->nama,
-            'no_hak'=>$request->no_hak,
             'kecamatan'=>$request->kecamatan,
             'kelurahan'=>$request->kelurahan,
             'no_bukutanah'=>$request->no_bukutanah,

@@ -157,7 +157,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="text-center">
-        <strong>DATA INVENTARIS WARKAH <br> KANTOR TANAH KABUPATEN BANYUASIN</strong><br><br>
+        <strong>APLIKASI WARKAH <br> KANTOR TANAH KABUPATEN BANYUASIN</strong><br><br>
         <img src="{{ URL::asset('assets/img/logobpn.png') }}" alt="logo" width="15%">
         <br><br>
       </h1>
@@ -171,7 +171,7 @@
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3>{{ $admin->total() }}</h3>
-                        <p>Jumlah Data Warkah <br></p>
+                        <p>Jumlah Data Buku Tanah <br></p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-files-o"></i>
@@ -210,7 +210,7 @@
               <div class="small-box bg-aqua">
                   <div class="inner">
                       <h3>{{ $datapinjam->total() }}</h3>
-                      <p> Jumlah Laporan Peminjaman dan Pengembalian Warkah </p>
+                      <p> Jumlah Laporan Peminjaman dan Pengembalian Buku Tanah </p>
                   </div>
                   <div class="icon">
                       <i class="ion ion-ios-people"></i>
@@ -226,7 +226,7 @@
             <div class="small-box bg-maroon">
                 <div class="inner">
                     <h3>{{ $datapengajuan->total() }}</h3>
-                    <p> Jumlah Pengajuan Peminjaman Warkah </p>
+                    <p> Jumlah Pengajuan Peminjaman Buku Tanah </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-ios-book"></i>
@@ -246,10 +246,7 @@
   immediately after the control sidebar -->
   <div class="control-sidebar-bg">
   </div>
-  
-</div>
-<!-- Main Footer -->
-<footer class="main-footer">
+  <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
         <img src="{{ URL::asset('assets/img/ig.png') }}" alt="Instagram">
@@ -258,6 +255,9 @@
     <!-- Default to the left -->
     <strong>Copyright &copy; {{ date('Y') }} Kantor Tanah Kabupaten Banyuasin.</strong>
   </footer>
+</div>
+<!-- Main Footer -->
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->

@@ -194,6 +194,7 @@
             <table class="table table-hover">
               <tr>
                 <th>#</th>
+                <th>Id User</th>
                 <th>Nama</th>
                 <th>Email</th>
                 <th>Terakhir Login</th>
@@ -202,6 +203,7 @@
               @foreach($datauser as $a)
               <tr>
                 <td> {{ $loop->iteration }} </td>
+                <td>{{ $a->id }}</td>
                 <td> {{ $a->name }} </td>
                 <td> {{ $a->email }} </td>
                 <td> {{ $a->last_login_at }} </td>
